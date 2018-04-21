@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Alex/OneDrive/Uni/CLionProjects/c++/A1-1/Vec3f.cpp
+Vec3f.h
+C:/Users/Alex/OneDrive/Uni/CLionProjects/c++/A1-1/Vec3f.h
+array
+-
+
+C:/Users/Alex/OneDrive/Uni/CLionProjects/c++/A1-1/Vec3f.h
+array
+-
+ostream
+-
+
+C:/Users/Alex/OneDrive/Uni/CLionProjects/c++/A1-1/main.cpp
+iostream
+-
+Vec3f.h
+C:/Users/Alex/OneDrive/Uni/CLionProjects/c++/A1-1/Vec3f.h
+../A1-2/Vec.h
+C:/Users/Alex/OneDrive/Uni/CLionProjects/c++/A1-2/Vec.h
+
+C:/Users/Alex/OneDrive/Uni/CLionProjects/c++/A1-2/Vec.h
+array
+-
+ostream
+-
+
