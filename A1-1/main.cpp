@@ -1,25 +1,16 @@
 #include <iostream>
-#include "Vec3f.h"
-#include "../A1-2/Vec.h"
-
+#include "vec3f.h"
+#include "test11.cpp"
 
 int main() {
-    Vec<float,3> f({1,2,3});
-    Vec<float,4> f1({1,2,3,4});
-    Vec<float,4> f2({1,2,3,4});
-    Vec<float,3> f3({1,2,3});
+    using namespace my;
 
-    bool b = f==f3;
-    bool nb = f!=f3;
-    f3=f3+f;
-    f1 = f1 * 5;
-    float mult = f1[0];
+    Vec3f a(1,1,3);
+    Vec3f b(1,1,3);
+    test_Vec3f();
 
-    std::cout <<"+  "<< f3 << std::endl;
-    std::cout <<"-  "<< -f3 << std::endl;
-    std::cout <<"*  "<< mult << std::endl;
-    std::cout <<"==  "<< b << std::endl;
-    std::cout <<"!=  "<< nb << std::endl;
-
+    float x =dot(a,b);
+    //test_Vec3f();
+    std::cout << (a[1] == b[2]) << std::endl;
     return 0;
 }
