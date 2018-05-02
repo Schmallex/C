@@ -79,7 +79,7 @@ namespace my {
         template<typename Z, int M>
         friend float dot(const Vec lhs, const Vec rhs);
 
-        //Aufgabe 3
+        //Aufgabe 3.1
 
         float length() const {
             float l = 0;
@@ -119,9 +119,10 @@ namespace my {
         return ans;
     }
 
-
+//3.2
+    template<typename Z, int M>
     void lengthOfAll(const  std::vector Vecs) {
-        for (Vec v :Vecs) {
+        for (Vec<Z,M> v :Vecs) {
             std::cout << v << "Length : " << v.length();
         }
     }
