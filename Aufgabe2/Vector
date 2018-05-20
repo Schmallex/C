@@ -11,13 +11,13 @@ namespace my {
     public:
         vector() {
             maxsize = 20;
-            size = 0;
+            v_size = 0;
             data_ = new T[maxsize];
         }
 
         vector(int n) {
             maxsize = n;
-            size = 0;
+            v_size = 0;
             data_ = new T[maxsize];
 
         }
@@ -27,7 +27,7 @@ namespace my {
         }
 
         bool empty()const{
-            return size == 0;
+            return v_size == 0;
         }
 
         size_t size()const{
@@ -35,15 +35,15 @@ namespace my {
         }
 
         void clear(){
-            for (int i = 0;i <size;i++){
+            for (int i = 0;i <v_size;i++){
                 data_[i]=0;
             }
         }
 
         void alloc_new (){
-            maxsize=size*2;
+            maxsize=v_size*2;
             T* tmp = new T[maxsize];
-            for (int i = 0;i <size;i++){
+            for (int i = 0;i <v_size;i++){
                 tmp[i]=data_[i];
             }
             delete[] data_;
@@ -51,19 +51,19 @@ namespace my {
         }
 
         void push_back(const T& i){//ELement hinten einfügen
-           if (size +1>maxsize){
+           if (v_size +1>maxsize){
                alloc_new();
            }
-           data_[size]= i;
-           size++;
+           data_[v_size]= i;
+           v_size++;
         }
 
         T pop_back(){//Letzte ELement aus Array löschen
             T* tmp = new T[maxsize];
-            for (int i = 0;i <(size-1);i++){
+            for (int i = 0;i <(v_size-1);i++){
                 tmp[i]=data_[i];
             }
-            T val = data_[size-1];
+            T val = data_[v_size-1];
             delete[] data_;
             data_= tmp;
             return val;
@@ -78,18 +78,18 @@ namespace my {
         }
 
         T at(int index)const{
-            if (index<size){
+            if (index<v_size){
                 return data_[index];
             }
             throw std::out_of_range ("Index out of Range");
         }
-        vector(vector<T> const &) = delete;
-        vector<T>& operator=(vector<T> const &) = delete;
+       // vector(vector<T> const &) = delete;
+      //  vector<T>& operator=(vector<T> const &) = delete;
 
 
     private:
         T *data_;
-        int size;
+        int v_size;
         int maxsize;
     };
 }
