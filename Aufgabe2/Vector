@@ -1,0 +1,95 @@
+//
+// Created by Alex on 20.05.2018.
+//
+
+#pragma once
+#include <array>
+namespace my {
+
+    template<typename T>
+    class vector {
+    public:
+        vector() {
+            maxsize = 20;
+            size = 0;
+            data_ = new T[maxsize];
+        }
+
+        vector(int n) {
+            maxsize = n;
+            size = 0;
+            data_ = new T[maxsize];
+
+        }
+
+        ~vector() {
+            delete[] data_;
+        }
+
+        bool empty()const{
+            return size == 0;
+        }
+
+        size_t size()const{
+            return sizeof(data_);
+        }
+
+        void clear(){
+            for (int i = 0;i <size;i++){
+                data_[i]=0;
+            }
+        }
+
+        void alloc_new (){
+            maxsize=size*2;
+            T* tmp = new T[maxsize];
+            for (int i = 0;i <size;i++){
+                tmp[i]=data_[i];
+            }
+            delete[] data_;
+            data_ = tmp;
+        }
+
+        void push_back(const T& i){//ELement hinten einfügen
+           if (size +1>maxsize){
+               alloc_new();
+           }
+           data_[size]= i;
+           size++;
+        }
+
+        T pop_back(){//Letzte ELement aus Array löschen
+            T* tmp = new T[maxsize];
+            for (int i = 0;i <(size-1);i++){
+                tmp[i]=data_[i];
+            }
+            T val = data_[size-1];
+            delete[] data_;
+            data_= tmp;
+            return val;
+        }
+
+        T operator[](const int index) {
+            return data_[index];
+        }
+
+        const T operator[](const int index) const {
+            return data_[index];
+        }
+
+        T at(int index)const{
+            if (index<size){
+                return data_[index];
+            }
+            throw std::out_of_range ("Index out of Range");
+        }
+        vector(vector<T> const &) = delete;
+        vector<T>& operator=(vector<T> const &) = delete;
+
+
+    private:
+        T *data_;
+        int size;
+        int maxsize;
+    };
+}
